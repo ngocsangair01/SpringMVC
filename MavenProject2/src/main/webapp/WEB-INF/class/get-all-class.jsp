@@ -22,7 +22,7 @@
 <form action="/classes/filter/amount" method="GET">
     <input type="text" id="getMoreThan" name="getMoreThan" path="getMoreThan">
     <input type="text" id="getLessThan" name="getLessThan" path="getLessThan">
-    <button type="submit">Filter</button>
+    <button type="submit">Filter</butto
 </form>
 
 <form action="/classes" method="get" modelAttribute="classes">
