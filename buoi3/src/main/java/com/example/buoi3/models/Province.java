@@ -1,5 +1,6 @@
 package com.example.buoi3.models;
 
+import com.example.buoi3.bases.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,12 +17,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "provinces")
-public class Province {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_province")
-    private Integer id;
+public class Province extends BaseEntity {
 
     @Column(name = "name")
     @Nationalized
@@ -34,4 +30,7 @@ public class Province {
     @OneToMany(mappedBy = "province",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<District> districts;
+
+    @OneToMany(mappedBy = "province")
+    private List<UserProvince> userProvinces;
 }

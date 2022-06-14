@@ -1,31 +1,32 @@
 package com.example.buoi3.models;
 
 import com.example.buoi3.bases.BaseEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "districts")
-public class District extends BaseEntity {
-
+@Table(name = "users")
+public class User extends BaseEntity {
     @Column(name = "name")
     @Nationalized
     private String name;
 
-    @Column(name = "code")
-    private String code;
+    @Column(name = "age")
+    private Integer age;
 
-    @ManyToOne
-    @JoinColumn(name = "id_province")
-    private Province province;
+    @OneToMany(mappedBy = "user")
+    private Set<UserProvince> userProvinces;
 }
